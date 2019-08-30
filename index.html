@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Gothic+A1" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+  <title></title>
+</head>
+
+<body>
+  <main>
+    <div class="envelope">
+      <div class="back closed">
+      </div>
+      <div class="letter">
+        You've got mail.
+      </div>
+      <div class="front">
+      </div>
+    </div>
+    <audio id="voice" src="sound/message.mp3">
+      </audio>
+    <audio id="message" src="sound/message.mp3">
+      </audio>
+    <div class="loginScreen">
+      Screen name:
+      <select class="" name="screen-name">
+        <option value="">Shopgirl</option>
+      </select>
+      <button type="button" name="button" id="login">Sign in</button>
+    </div>
+    <div class="content">
+      <div class="NY152">
+        NY152
+      </div>
+      <div class="inner-content">
+        <div class="messages">
+        </div>
+      </div>
+      <div class="typeBox">
+        <div class="typing-wrapper">
+          <span class="text typewriter-animation"></span>
+        </div>
+        <button type="button" name="button" id="send"><i class="fas fa-paper-plane"></i></button>
+      </div>
+      <div class="emoticon">
+        <i class="far fa-smile"></i>
+        <i class="fas fa-paperclip"></i>
+      </div>
+    </div>
+
+    <button type="button" name="button" id="next">Press<span> to play messages</span></button>
+    <button type="button" name="button" id="refreshButton"> You're offline. Replay? </button>
+  </main>
+
+  <script src="js/main.js" charset="utf-8"></script>
+</body>
+
+</html>

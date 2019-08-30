@@ -1,0 +1,420 @@
+@mixin flexbox(){
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+}
+
+html, body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background: #fffaf7;
+  font-family: 'Gothic A1', sans-serif;
+}
+
+main {
+  @include flexbox();
+  flex-flow: column;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+
+.loginScreen{
+    position: fixed;
+    z-index: 8;
+    height: 100%;
+    @include flexbox();
+    flex-flow: column;
+    height: 30%;
+    width: 350px;
+    background: #f0f3f6;
+    min-width: 320px;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: 1s;
+    font-size: 22px;
+
+    select{
+      border: none;
+      padding: 10px;
+      // -webkit-appearance: none;
+      // -moz-appearance: none;
+      // appearance: none;
+      margin-top: 10px;
+    }
+
+    option{
+      background: green;
+    }
+
+    &.hide{
+      opacity: 0;
+      z-index: -2;
+    }
+
+    #login {
+    cursor: pointer;
+    background: #7fb9b7;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-top: 40px;
+    transition: all 1s, width .5s, background .4s .5s;
+    width: 200px;
+    box-shadow: 0px 5px 38px 1px #b9c8d5;
+    color: #e4e4e4;
+
+    }
+  }
+  //next button
+  #next{
+    cursor: pointer;
+    background: #7fb9b7;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-top: 40px;
+    transition: all 1s, width .5s, background .4s .5s;
+    width: 200px;
+    box-shadow: 0px 5px 38px 1px #8a96a0;
+    color: #e4e4e4;
+    opacity: 0;
+    transition: 1s;
+
+    span{
+      display: none;
+      transform: translateX(200px);
+    }
+
+    &:hover{
+      width: 250px;
+      background: #66a8a6;
+
+      span {
+        display: block;
+        transform: translateX(0px);
+
+      }
+    }
+
+  }
+}
+
+.far{
+  transition: 1s;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+
+  &.rotate{
+    animation: turningwheel 3s infinite linear;
+  }
+}
+
+@keyframes turningwheel {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+//messagebox
+.content{
+  @include flexbox();
+  flex-flow: column;
+  height: 65%;
+  width: 350px;
+  background: #f0f3f6;
+  min-width: 320px;
+  justify-content: space-between;
+  box-shadow: 0px 11px 44px 6px #aaafaa;
+  border-radius: 15px;
+
+  //username joeFox
+  .NY152{
+    background: #92bbba;
+    height: 100px;
+    @include flexbox;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    // box-shadow: 0px 2px 5px 0px #77a2a1;
+    z-index: 3;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    opacity: 0;
+  }
+
+  .start-screen{
+    position: fixed;
+    z-index: 1;
+    height: 50%;
+    background: violet;
+    width: 50%;
+    transition: 2s;
+    opacity: 1;
+    display: block;
+
+  }
+
+  .inner-content{
+    padding: 20px;
+    overflow: auto;
+    background: #ece9e9;
+    height: 100%;
+    opacity: 0;
+  }
+
+  .messages{
+    @include flexbox;
+    flex-flow: column;
+  }
+
+  .kathleenMessage{
+    background: #9dc3c0;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 60%;
+    margin-left: auto;
+    box-shadow: 0px 0px 42px 0px #c8d8df;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    color: #fff6f6;
+  }
+
+  .katTimeMessage{
+    margin-left: auto;
+  }
+
+  .joeFoxMessage {
+    background: #fbf8f4;
+    padding: 10px;
+    margin-top: 10px;
+    width: 60%;
+    box-shadow: 0px 0px 42px 0px #d4dcd4;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    color: #727875;
+  }
+
+  .typeBox{
+    padding: 20px 20px 0px 20px;
+    @include flexbox;
+    flex-flow: row;
+    align-items: center;
+    height: 100px;
+    opacity: 0;
+  }
+
+  .typing-wrapper{
+    height: 32px;
+  }
+
+  .emoticon{
+    align-self: flex-start;
+    height: 80px;
+    padding: 0px 20px 0px 20px;
+    box-sizing: border-box;
+    color: #bfbcbc;
+    font-size: 19px;
+    opacity: 0;
+  }
+
+  .katTimeMessage,
+  .joeTimeMessage{
+    color: grey;
+    font-size: 13px;
+    margin-top: 4px;
+  }
+
+  #send {
+    @include flexbox;
+    margin-left: auto;
+    color: #92bbba;
+    border: none;
+    padding: 10px;
+    border-radius: 3px;
+    height: 32px;
+    background: none;
+
+    .fa, .fas{
+      font-size: 30px;
+    }
+  }
+}
+
+.start-screen.hide{
+  opacity: 0;
+  background: grey;
+  z-index: -10;
+}
+
+.text {
+  /* background: red; */
+  overflow: hidden;
+  top: 50%;
+  transform: translateY(-50%);
+  border-right: 2px solid green;
+  transition: 1s;
+  animation: blinkTextCursor 500ms infinite normal;
+  text-align: left;
+}
+
+.received{
+  height: 100px;
+}
+
+@keyframes blinkTextCursor{
+  from{border-right-color: black;}
+  to{border-right-color: transparent;}
+}
+
+////envelope
+.envelope{
+  width: 150px;
+  height: 100px;
+  background: #dadada;
+  margin: 20px;
+  position: relative;
+  box-shadow: 0px 0px 30px 0px #a2a3a2;
+  transition: 1s;
+
+  &.open{
+    box-shadow: 0px 0px 70px 5px #a2a3a2;
+  }
+}
+
+.envelope::before{
+  content: '';
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  z-index: 2;
+  border-left: 150px solid transparent;
+  border-bottom: 100px solid #fff9f9;
+}
+
+.envelope::after{
+  content: '';
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  border-right: 150px solid transparent;
+  border-bottom: 100px solid #fff9f9;
+}
+
+.letter{
+  font-size: 14px;
+  text-align: center;
+  width: 140px;
+  height: 100px;
+  background: white;
+  margin: 0 auto;
+  margin-top: 0px;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 1;
+  position: relative;
+  transition: 1s;
+  transform: translateY(0px);
+
+  &.open{
+    transform: translateY(-50px);
+  }
+}
+.front {
+  width: 0px;
+  height: 0px;
+  border-right: 75px solid transparent;
+  border-left: 75px solid transparent;
+  border-bottom: 50px solid #f6ebeb;
+  position: absolute;
+  bottom: 0;
+  z-index: 4;
+}
+.back{
+  width: 0px;
+  height: 0px;
+  border-right: 75px solid transparent;
+  border-left: 75px solid transparent;
+  border-top: 60px solid #d6caca;
+  position: absolute;
+  z-index: 5;
+  transition: all 1s;
+
+  &.open{
+    animation: flipOpen 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    z-index: 0;
+    }
+
+  &.closed{
+    animation: flipClose 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes flipOpen{
+	from{
+		transform: rotateX(0deg);
+		transform-origin:center top;
+	  }
+	to{
+		transform:rotateX(180deg);
+		transform-origin:center top;
+	  }
+  }
+
+@keyframes flipClose{
+	from{
+		transform: rotateX(180deg);
+		transform-origin:center top;
+	  }
+	to{
+		transform:rotateX(0deg);
+		transform-origin:center top;
+	  }
+  }
+
+//refresh button
+#refreshButton{
+  display: none;
+  cursor: pointer;
+  background: #7fb9b7;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 20px;
+  margin-top: 40px;
+  width: 200px;
+  box-shadow: 0px 5px 38px 1px #8a96a0;
+  color: #e4e4e4;
+  transition: 1s;
+
+  &:hover{
+    background: #66a8a6;
+  }
+}
+
+@media screen and (min-width:2000px){
+    .loginScreen, .content{
+        width: 500px;
+    }
+}
